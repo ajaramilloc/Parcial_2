@@ -62,8 +62,8 @@ describe('EstudianteService', () => {
   describe('eliminarEstudiante', () => {
     it('debería eliminar estudiante si no tiene proyectos activos', async () => {
       const deleteResult = { affected: 1 };
-      mockProyectoRepo.find.mockResolvedValue([]); // No tiene proyectos activos
-      mockEstudianteRepo.delete.mockResolvedValue(deleteResult); // Devuelve resultado
+      mockProyectoRepo.find.mockResolvedValue([]); 
+      mockEstudianteRepo.delete.mockResolvedValue(deleteResult);
 
       const result = await service.eliminarEstudiante(1);
 
@@ -71,7 +71,7 @@ describe('EstudianteService', () => {
         where: { lider: { id: 1 }, estado: 0 },
       });
       expect(mockEstudianteRepo.delete).toHaveBeenCalledWith(1);
-      expect(result).toEqual(deleteResult); // Espera el objeto
+      expect(result).toEqual(deleteResult);
     });
 
     it('debería lanzar error si tiene proyectos activos', async () => {
