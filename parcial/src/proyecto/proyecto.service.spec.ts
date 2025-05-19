@@ -14,7 +14,6 @@ describe('ProyectoService', () => {
   };
 
   const mockEstudianteRepo = {
-    // Agrega mocks aquí si necesitas para métodos usados del repositorio de Estudiante
   };
 
   beforeEach(async () => {
