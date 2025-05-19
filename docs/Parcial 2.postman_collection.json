@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "9dccd3f0-11e1-416e-9d1a-4b9ded46ff5b",
+		"name": "Parcial 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23608092"
+	},
+	"item": [
+		{
+			"name": "Estudiantes",
+			"item": [
+				{
+					"name": "Crear estudiante",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cedula\": 1234567899,\n  \"nombre\": \"Alejandro\",\n  \"semestre\": 5,\n  \"programa\": \"Ingeniería de Sistemas\",\n  \"promedio\": 4.9\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/estudiantes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"estudiantes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar estudiante",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/estudiantes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"estudiantes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Evaluaciones",
+			"item": [
+				{
+					"name": "Crear evaluación",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"proyecto\": {\"id\": 1}, \"evaluador\": {\"id\": 2}, \"calificacion\": 85}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/evaluaciones",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"evaluaciones"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profesores",
+			"item": [
+				{
+					"name": "Crear profesor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cedula\": 9876543210,\n  \"nombre\": \"María Rodríguez\",\n  \"departamento\": \"Ciencias de la Computación\",\n  \"extension\": 4321,\n  \"esParEvaluador\": true\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/profesores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"profesores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Asignar evaluador",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/profesores/1/asignar-evaluador",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"profesores",
+								"1",
+								"asignar-evaluador"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Proyectos",
+			"item": [
+				{
+					"name": "Crear proyecto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"titulo\": \"Proyecto de investigación avanzado sobre IA\", \"presupuesto\": 15000}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/proyectos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"proyectos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Avanzar proyecto",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/proyectos/1/avanzar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"proyectos",
+								"1",
+								"avanzar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener líder del proyecto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/proyectos/1/estudiantes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"proyectos",
+								"1",
+								"estudiantes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000"
+		}
+	]
+}
